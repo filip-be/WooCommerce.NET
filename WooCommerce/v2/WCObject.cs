@@ -72,6 +72,9 @@ namespace WooCommerceNET.WooCommerce.v2
             SystemStatus = new WCItem<v2.SystemStatus>(api);
             SystemStatusTool = new WCItem<v2.SystemStatusTool>(api);
             Setting = new WCItem<v2.Setting>(api);
+            BFTOrder = new WCItem<v2.BFTOrder>(api);
+            BFTTicket = new WCItem<v2.BFTTicket>(api);
+            BFTEvent = new WCItem<v2.BFTEvent>(api);
         }
 
         public WCItem<Coupon> Coupon { get; protected set; }
@@ -109,6 +112,9 @@ namespace WooCommerceNET.WooCommerce.v2
         public WCItem<SystemStatusTool> SystemStatusTool { get; protected set; }
 
         public WCItem<Setting> Setting { get; protected set; }
+        public WCItem<BFTOrder> BFTOrder { get; protected set; }
+        public WCItem<BFTTicket> BFTTicket { get; protected set; }
+        public WCItem<BFTEvent> BFTEvent { get; protected set; }
     }
 
     public class WCOrderItem : WCItem<Order>

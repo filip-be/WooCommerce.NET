@@ -20,6 +20,7 @@ namespace WooCommerceNET
         //private bool wc_Proxy = false;
 
         private bool AuthorizedHeader { get; set; }
+        private KeyValuePair<string, string>[] AdditionalHeaders { get; set; }
 
         private Func<string, string> jsonSeFilter;
         private Func<string, string> jsonDeseFilter;
@@ -37,11 +38,13 @@ namespace WooCommerceNET
         /// <param name="jsonDeserializeFilter">Provide a function to modify the json string before deserilizing.</param>
         /// <param name="requestFilter">Provide a function to modify the HttpWebRequest object.</param>
         /// <param name="responseFilter">Provide a function to grab information from the HttpWebResponse object.</param>
+        /// <param name="additionalHeaders">Additional headers for HTTP requests</param>
         public RestAPI(string url, string key, string secret, bool authorizedHeader = true, 
                             Func<string, string> jsonSerializeFilter = null, 
                             Func<string, string> jsonDeserializeFilter = null, 
                             Action<HttpWebRequest> requestFilter = null,
-                            Action<HttpWebResponse> responseFilter = null)//, bool useProxy = false)
+                            Action<HttpWebResponse> responseFilter = null,
+                            KeyValuePair<string, string>[] additionalHeaders = null)//, bool useProxy = false)
         {
             if (string.IsNullOrEmpty(url))
                 throw new Exception("Please use a valid WooCommerce Restful API url.");
@@ -64,6 +67,7 @@ namespace WooCommerceNET
             wc_url = url + (url.EndsWith("/") ? "" : "/");
             wc_key = key;
             AuthorizedHeader = authorizedHeader;
+            AdditionalHeaders = additionalHeaders;
 
             //Why extra '&'? look here: https://wordpress.org/support/topic/woocommerce-rest-api-v3-problem-woocommerce_api_authentication_error/
             if ((url.ToLower().Contains("wc-api/v3") || !IsLegacy) && !wc_url.StartsWith("https", StringComparison.OrdinalIgnoreCase))
@@ -123,6 +127,14 @@ namespace WooCommerceNET
                         parms.Add("consumer_secret", wc_secret);
 
                     httpWebRequest = (HttpWebRequest)WebRequest.Create(wc_url + GetOAuthEndPoint(method.ToString(), endpoint, parms));
+                }
+
+                if(AdditionalHeaders != null)
+                {
+                    foreach(var header in AdditionalHeaders)
+                    {
+                        httpWebRequest.Headers[header.Key] = header.Value;
+                    }
                 }
 
                 // start the stream immediately

@@ -66,6 +66,10 @@
     <Compile Include="WooCommerce\v1\Tax.cs" />
     <Compile Include="WooCommerce\v1\WCObject.cs" />
     <Compile Include="WooCommerce\v1\Webhook.cs" />
+    <Compile Include="WooCommerce\v2\BFTEvent.cs" />
+    <Compile Include="WooCommerce\v2\BFTOrder.cs" />
+    <Compile Include="WooCommerce\v2\BFTOrderTicket.cs" />
+    <Compile Include="WooCommerce\v2\BFTTicket.cs" />
     <Compile Include="WooCommerce\v2\ProductAttribute.cs" />
     <Compile Include="WooCommerce\v2\ProductCategory.cs" />
     <Compile Include="WooCommerce\v2\Customer.cs" />
