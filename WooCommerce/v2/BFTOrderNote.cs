@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using WooCommerceNET.Base;
 
 namespace WooCommerceNET.WooCommerce.v2
 {
     [DataContract]
-    public class BFTOrderNote
+    public class BFTOrderNote : JsonObject
     {
         [DataMember(EmitDefaultValue = false)]
         public int? id { get; set; }
