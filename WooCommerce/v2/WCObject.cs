@@ -75,6 +75,7 @@ namespace WooCommerceNET.WooCommerce.v2
             BFTOrder = new WCItem<v2.BFTOrder>(api);
             BFTTicket = new WCItem<v2.BFTTicket>(api);
             BFTEvent = new WCItem<v2.BFTEvent>(api);
+            BFTStatistic = new WCItem<v2.BFTStatistic>(api);
         }
 
         public WCItem<Coupon> Coupon { get; protected set; }
@@ -115,6 +116,7 @@ namespace WooCommerceNET.WooCommerce.v2
         public WCItem<BFTOrder> BFTOrder { get; protected set; }
         public WCItem<BFTTicket> BFTTicket { get; protected set; }
         public WCItem<BFTEvent> BFTEvent { get; protected set; }
+        public WCItem<BFTStatistic> BFTStatistic { get; protected set; }
     }
 
     public class WCOrderItem : WCItem<Order>

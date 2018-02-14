@@ -70,6 +70,7 @@
     <Compile Include="WooCommerce\v2\BFTOrder.cs" />
     <Compile Include="WooCommerce\v2\BFTOrderNote.cs" />
     <Compile Include="WooCommerce\v2\BFTOrderTicket.cs" />
+    <Compile Include="WooCommerce\v2\BFTStatistic.cs" />
     <Compile Include="WooCommerce\v2\BFTTicket.cs" />
     <Compile Include="WooCommerce\v2\ProductAttribute.cs" />
     <Compile Include="WooCommerce\v2\ProductCategory.cs" />
