@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using WooCommerceNET.Base;
 
 namespace WooCommerceNET.WooCommerce.v2
@@ -100,6 +97,11 @@ namespace WooCommerceNET.WooCommerce.v2
                 return false;
 
             return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
